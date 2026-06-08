@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  icons: { icon: "/imagine-logo.svg" },
   title: "Careers — ImagineArt",
   description:
     "Join the small team building AI that's already in the hands of 100M+ creators. Images, video, music and editing — all on one canvas.",
