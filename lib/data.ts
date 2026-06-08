@@ -1,0 +1,52 @@
+export const ASHBY_URL = "https://jobs.ashbyhq.com/imagineart";
+
+export const STATS = [
+  { n: "100M+", label: "Creators worldwide" },
+  { n: "$35M+", label: "Annual recurring revenue" },
+  { n: "Top 3",  label: "Text-to-image models, globally" },
+  { n: "2018",   label: "Bootstrapped & building since" },
+];
+
+export const TEAM = [
+  { id: "team-1", name: "Ahmed Abubakr",    role: "Co-founder & CEO", li: "https://www.linkedin.com/in/ahmed-abubakar-9482127b/" },
+  { id: "team-2", name: "Abdullah Rafique", role: "Co-founder & CTO", li: "https://www.linkedin.com/in/abdullahrafiq/" },
+  { id: "team-3", name: "Zain ul Abedien",  role: "Co-founder & CGO", li: "https://www.linkedin.com/in/zain-vyro-ai/" },
+];
+
+export const VALUES = [
+  { icon: "sparkles", title: "Taste is a feature",       body: "We sweat the details others skip. Craft and aesthetic judgment aren't polish at the end — they're how we decide what to build." },
+  { icon: "heart",    title: "Creators come first",      body: "Every choice starts with the maker on the other side of the screen. If it doesn't help someone create, it doesn't ship." },
+  { icon: "zap",      title: "Ship at the speed of AI",  body: "The frontier moves weekly. We prototype in days, launch in weeks, and learn in public rather than polishing in private." },
+  { icon: "users",    title: "Small teams, huge surface", body: "Tiny groups own enormous problems end to end. You'll have more scope here than at companies ten times our size." },
+  { icon: "eye",      title: "Show, don't tell",         body: "We lead with the work. A working demo beats a deck every time — make the thing, then let it argue for itself." },
+  { icon: "target",   title: "Own the outcome",          body: "Not the task, the result. We hand people goals and trust, then get out of the way and celebrate what they build." },
+];
+
+export const PERKS = [
+  { icon: "gift",     title: "Meaningful equity",          body: "Real ownership in what we're building together." },
+  { icon: "monitor",  title: "Top-tier hardware",          body: "The machine, GPUs and compute you need to move fast." },
+  { icon: "infinity", title: "Unlimited credits",          body: "Generate without limits across every ImagineArt tool." },
+  { icon: "shield",   title: "Health & wellness",          body: "Medical, dental and vision for you and your family." },
+  { icon: "pin",      title: "Remote-first, global hubs",  body: "Work from anywhere, or our SF & Lahore studios." },
+  { icon: "book",     title: "Learning budget",            body: "Annual stipend for courses, conferences and books." },
+  { icon: "calendar", title: "Flexible time off",          body: "Take the time you need to do your best work." },
+  { icon: "plane",    title: "Team offsites",              body: "We gather a few times a year to build in person." },
+];
+
+export const GALLERY = [
+  { id: "life-1", label: "Demo Friday",  span: "tall" },
+  { id: "life-2", label: "SF studio",    span: "wide" },
+  { id: "life-3", label: "Lahore HQ",    span: "" },
+  { id: "life-4", label: "Offsite '25",  span: "" },
+  { id: "life-5", label: "Launch day",   span: "wide" },
+  { id: "life-6", label: "Pair session", span: "tall" },
+];
+
+export const PROCESS = [
+  { n: "01", title: "Apply",            body: "Two minutes, no cover letter. Show us something you've made." },
+  { n: "02", title: "Intro call",       body: "An HR round to get to know you and what you're looking for." },
+  { n: "03", title: "Technical round",  body: "A deep-dive with the technical lead for your team." },
+  { n: "04", title: "Task round",       body: "Work through a real problem the way you actually work." },
+  { n: "05", title: "Co-founder round", body: "Meet a founder — vision, values and where you fit in." },
+  { n: "06", title: "Offer",            body: "Fast decisions. We move at the speed we expect from you." },
+];
