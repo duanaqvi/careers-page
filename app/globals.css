@@ -422,6 +422,17 @@ a { color: inherit; }
 .roles-prompt p { font-size: var(--text-body-lg); margin: 0; }
 .roles-more { display: flex; justify-content: center; padding-top: 36px; }
 
+.workplace-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.workplace-pill {
+  height: 36px; padding: 0 16px; border-radius: var(--radius-full);
+  font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap;
+  font-family: var(--font-sans); transition: all 160ms ease;
+  border: 1px solid rgb(var(--border-secondary)); background: transparent;
+  color: rgb(var(--content-secondary));
+}
+.workplace-pill:hover { color: rgb(var(--content-primary)); border-color: rgb(var(--border-tertiary)); }
+.workplace-pill.active { background: rgb(var(--fill-inverse)); color: rgb(var(--content-primary-inverse)); border-color: transparent; }
+
 .geo-hint {
   display: inline-flex; align-items: center; gap: 10px; margin-bottom: 12px;
   font-size: 13px; color: rgb(var(--content-secondary));
