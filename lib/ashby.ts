@@ -5,6 +5,7 @@ export interface Role {
   loc: string;
   type: string;
   remote: boolean;
+  workplace: "Remote" | "Hybrid" | "On-site";
   url: string;
 }
 
@@ -52,6 +53,7 @@ export async function fetchRoles(): Promise<Role[]> {
         loc: String(j.locationName ?? "Remote"),
         type: mapEmploymentType(String(j.employmentType ?? "FullTime")),
         remote: j.workplaceType === "Remote",
+        workplace: j.workplaceType === "Remote" ? "Remote" : j.workplaceType === "Hybrid" ? "Hybrid" : "On-site",
         url: String(j.externalLink ?? j.applyLink ?? ""),
       }));
   } catch (err) {
@@ -62,14 +64,14 @@ export async function fetchRoles(): Promise<Role[]> {
 
 // Fallback static data — used when the API is unavailable
 const STATIC_ROLES: Role[] = [
-  { id: "f46b2593", title: "Graphic Designer", dept: "Product & Design", loc: "Islamabad", type: "Full-time", remote: false, url: "https://jobs.ashbyhq.com/imagineart/f46b2593-e4a7-4dd1-9445-61ca00d0d903" },
-  { id: "fe03f835", title: "Product Designer", dept: "Product & Design", loc: "Islamabad", type: "Full-time", remote: false, url: "https://jobs.ashbyhq.com/imagineart/fe03f835-b5a0-4cde-b43b-925f081e4622" },
-  { id: "24665c44", title: "Creator Community Manager", dept: "Growth & Marketing", loc: "Islamabad", type: "Full-time", remote: false, url: "https://jobs.ashbyhq.com/imagineart/24665c44-110d-41a0-837e-bda275f49486" },
-  { id: "eb362dae", title: "Associate MLOps Engineer", dept: "Engineering", loc: "Islamabad", type: "Full-time", remote: false, url: "https://jobs.ashbyhq.com/imagineart/eb362dae-d3cc-4908-99d9-84e16653d403" },
-  { id: "efed24c0", title: "Principal AI Engineer (LLM Agents)", dept: "Engineering", loc: "India", type: "Full-time", remote: true, url: "https://jobs.ashbyhq.com/imagineart/efed24c0-7f4a-4381-8f22-1975e5f46795" },
-  { id: "a328e9b4", title: "Full Stack AI Engineer", dept: "Engineering", loc: "Islamabad", type: "Full-time", remote: false, url: "https://jobs.ashbyhq.com/imagineart/a328e9b4-0dc5-4628-a444-9372655daece" },
-  { id: "0d37ec79", title: "Senior Frontend Engineer", dept: "Engineering", loc: "Islamabad", type: "Full-time", remote: false, url: "https://jobs.ashbyhq.com/imagineart/0d37ec79-0aa8-4605-a06b-9a0c64cdf736" },
-  { id: "85f2b012", title: "Agentic AI Engineer", dept: "Engineering", loc: "Islamabad", type: "Full-time", remote: false, url: "https://jobs.ashbyhq.com/imagineart/85f2b012-08d5-4abc-b708-6e71e8d2e1a3" },
-  { id: "17028e2c", title: "Sales Development Representative", dept: "Operations", loc: "San Francisco", type: "Full-time", remote: false, url: "https://jobs.ashbyhq.com/imagineart/17028e2c-bc91-495b-a24c-a1b2b3c7216f" },
-  { id: "90493a38", title: "Soul Team — Writers & Thinkers", dept: "Soul", loc: "Islamabad", type: "Full-time", remote: false, url: "https://jobs.ashbyhq.com/imagineart/90493a38-4e04-4e06-bf22-50a714c8e758" },
+  { id: "f46b2593", title: "Graphic Designer", dept: "Product & Design", loc: "Islamabad", type: "Full-time", remote: false, workplace: "On-site", url: "https://jobs.ashbyhq.com/imagineart/f46b2593-e4a7-4dd1-9445-61ca00d0d903" },
+  { id: "fe03f835", title: "Product Designer", dept: "Product & Design", loc: "Islamabad", type: "Full-time", remote: false, workplace: "On-site", url: "https://jobs.ashbyhq.com/imagineart/fe03f835-b5a0-4cde-b43b-925f081e4622" },
+  { id: "24665c44", title: "Creator Community Manager", dept: "Growth & Marketing", loc: "Islamabad", type: "Full-time", remote: false, workplace: "On-site", url: "https://jobs.ashbyhq.com/imagineart/24665c44-110d-41a0-837e-bda275f49486" },
+  { id: "eb362dae", title: "Associate MLOps Engineer", dept: "Engineering", loc: "Islamabad", type: "Full-time", remote: false, workplace: "On-site", url: "https://jobs.ashbyhq.com/imagineart/eb362dae-d3cc-4908-99d9-84e16653d403" },
+  { id: "efed24c0", title: "Principal AI Engineer (LLM Agents)", dept: "Engineering", loc: "India", type: "Full-time", remote: true, workplace: "Remote", url: "https://jobs.ashbyhq.com/imagineart/efed24c0-7f4a-4381-8f22-1975e5f46795" },
+  { id: "a328e9b4", title: "Full Stack AI Engineer", dept: "Engineering", loc: "Islamabad", type: "Full-time", remote: false, workplace: "On-site", url: "https://jobs.ashbyhq.com/imagineart/a328e9b4-0dc5-4628-a444-9372655daece" },
+  { id: "0d37ec79", title: "Senior Frontend Engineer", dept: "Engineering", loc: "Islamabad", type: "Full-time", remote: false, workplace: "On-site", url: "https://jobs.ashbyhq.com/imagineart/0d37ec79-0aa8-4605-a06b-9a0c64cdf736" },
+  { id: "85f2b012", title: "Agentic AI Engineer", dept: "Engineering", loc: "Islamabad", type: "Full-time", remote: false, workplace: "On-site", url: "https://jobs.ashbyhq.com/imagineart/85f2b012-08d5-4abc-b708-6e71e8d2e1a3" },
+  { id: "17028e2c", title: "Sales Development Representative", dept: "Operations", loc: "San Francisco", type: "Full-time", remote: false, workplace: "On-site", url: "https://jobs.ashbyhq.com/imagineart/17028e2c-bc91-495b-a24c-a1b2b3c7216f" },
+  { id: "90493a38", title: "Soul Team — Writers & Thinkers", dept: "Soul", loc: "Islamabad", type: "Full-time", remote: false, workplace: "On-site", url: "https://jobs.ashbyhq.com/imagineart/90493a38-4e04-4e06-bf22-50a714c8e758" },
 ];

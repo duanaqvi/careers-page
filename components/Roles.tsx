@@ -37,12 +37,13 @@ const ALL_COUNTRIES = "All countries";
 const ALL_CITIES    = "All cities";
 
 export default function Roles({ roles }: { roles: Role[] }) {
-  const [dept,    setDept]    = useState<string | null>(null);
-  const [country, setCountry] = useState(ALL_COUNTRIES);
-  const [city,    setCity]    = useState(ALL_CITIES);
-  const [q,       setQ]       = useState("");
-  const [limit,   setLimit]   = useState(12);
-  const [geoHint, setGeoHint] = useState("");   // e.g. "📍 Detected: Pakistan"
+  const [dept,      setDept]      = useState<string | null>(null);
+  const [country,   setCountry]   = useState(ALL_COUNTRIES);
+  const [city,      setCity]      = useState(ALL_CITIES);
+  const [workplace, setWorkplace] = useState("All");
+  const [q,         setQ]         = useState("");
+  const [limit,     setLimit]     = useState(12);
+  const [geoHint,   setGeoHint]   = useState("");   // e.g. "📍 Detected: Pakistan"
 
   // ── Location auto-detect ──────────────────────────────────────────────────
   // Tries browser geolocation first (accurate), falls back to IP if denied.
@@ -124,21 +125,23 @@ export default function Roles({ roles }: { roles: Role[] }) {
       const l = locOf(r.loc);
       if (country !== ALL_COUNTRIES && l.country !== country) return false;
       if (city !== ALL_CITIES && l.city !== city) return false;
+      if (workplace !== "All" && r.workplace !== workplace) return false;
       if (q.trim()) {
         const s = (r.title + " " + r.dept + " " + r.loc).toLowerCase();
         if (!s.includes(q.trim().toLowerCase())) return false;
       }
       return true;
     });
-  }, [roles, dept, country, city, q]);
+  }, [roles, dept, country, city, workplace, q]);
 
   const shown = filtered.slice(0, limit);
 
   // ── Handlers ───────────────────────────────────────────────────────────────
-  const handleDept = (d: string) => { setDept(d); setLimit(12); };
-  const handleCountry = (c: string) => { setCountry(c); setCity(ALL_CITIES); setLimit(12); };
-  const handleCity = (c: string) => { setCity(c); setLimit(12); };
-  const handleQ = (v: string) => { setQ(v); setLimit(12); };
+  const handleDept      = (d: string) => { setDept(d); setLimit(12); };
+  const handleCountry   = (c: string) => { setCountry(c); setCity(ALL_CITIES); setLimit(12); };
+  const handleCity      = (c: string) => { setCity(c); setLimit(12); };
+  const handleWorkplace = (w: string) => { setWorkplace(w); setLimit(12); };
+  const handleQ         = (v: string) => { setQ(v); setLimit(12); };
 
   return (
     <section className="section" id="roles">
@@ -204,6 +207,19 @@ export default function Roles({ roles }: { roles: Role[] }) {
                   <span className="ic"><Icon name="chevron" size={16} /></span>
                 </div>
               )}
+
+              {/* Workplace toggle */}
+              <div className="workplace-pills">
+                {["All", "On-site", "Remote", "Hybrid"].map((w) => (
+                  <button
+                    key={w}
+                    className={`workplace-pill${workplace === w ? " active" : ""}`}
+                    onClick={() => handleWorkplace(w)}
+                  >
+                    {w}
+                  </button>
+                ))}
+              </div>
 
               <Button
                 variant="ghost"
