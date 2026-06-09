@@ -44,32 +44,52 @@ export default function Roles({ roles }: { roles: Role[] }) {
   const [limit,   setLimit]   = useState(12);
   const [geoHint, setGeoHint] = useState("");   // e.g. "📍 Detected: Pakistan"
 
-  // ── IP-based auto-detect ───────────────────────────────────────────────────
+  // ── Location auto-detect ──────────────────────────────────────────────────
+  // Tries browser geolocation first (accurate), falls back to IP if denied.
   useEffect(() => {
-    fetch("https://ipapi.co/json/")
-      .then((r) => r.json())
-      .then((d) => {
-        const detectedCountry: string = d.country_name ?? "";
-        const detectedCity:    string = d.city ?? "";
+    function applyLocation(detectedCountry: string, detectedCity: string) {
+      const hasCountry = roles.some((r) => locOf(r.loc).country === detectedCountry);
+      if (!hasCountry) return;
 
-        // Check if detected country exists in our roles data
-        const hasCountry = roles.some((r) => locOf(r.loc).country === detectedCountry);
-        if (!hasCountry) return;
+      setCountry(detectedCountry);
+      setGeoHint(`📍 Detected: ${detectedCountry}`);
 
-        setCountry(detectedCountry);
-        setGeoHint(`📍 Detected: ${detectedCountry}`);
+      const hasCity = roles.some((r) => {
+        const l = locOf(r.loc);
+        return l.country === detectedCountry && l.city === detectedCity;
+      });
+      if (hasCity) {
+        setCity(detectedCity);
+        setGeoHint(`📍 Detected: ${detectedCountry}, ${detectedCity}`);
+      }
+    }
 
-        // Check if detected city exists in that country's roles
-        const hasCity = roles.some((r) => {
-          const l = locOf(r.loc);
-          return l.country === detectedCountry && l.city === detectedCity;
-        });
-        if (hasCity) {
-          setCity(detectedCity);
-          setGeoHint(`📍 Detected: ${detectedCountry}, ${detectedCity}`);
-        }
-      })
-      .catch(() => {});
+    function fallbackToIP() {
+      fetch("https://ipapi.co/json/")
+        .then((r) => r.json())
+        .then((d) => applyLocation(d.country_name ?? "", d.city ?? ""))
+        .catch(() => {});
+    }
+
+    if (!navigator.geolocation) { fallbackToIP(); return; }
+
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+        fetch(
+          `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+        )
+          .then((r) => r.json())
+          .then((d) => {
+            const detectedCountry = d.countryName ?? "";
+            const detectedCity    = d.city || d.locality || d.principalSubdivision || "";
+            applyLocation(detectedCountry, detectedCity);
+          })
+          .catch(fallbackToIP);
+      },
+      () => fallbackToIP(),   // permission denied → fall back to IP
+      { timeout: 6000 }
+    );
   }, [roles]);
 
   // ── Derived filter options ─────────────────────────────────────────────────
