@@ -9,7 +9,7 @@ export function StatsBand() {
         <div className="stats-band">
           <div className="glow" />
           <div className="stats-band-head">
-            <Eyebrow style={{ color: "rgb(var(--primary-30))" }}>By the numbers</Eyebrow>
+            <Eyebrow style={{ color: "rgb(var(--primary-70))" }}>By the numbers</Eyebrow>
             <h2>Bootstrapped from Pakistan to one of the world&apos;s top creative AI platforms.</h2>
           </div>
           <div className="stats-band-grid">
