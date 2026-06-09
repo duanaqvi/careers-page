@@ -422,6 +422,16 @@ a { color: inherit; }
 .roles-prompt p { font-size: var(--text-body-lg); margin: 0; }
 .roles-more { display: flex; justify-content: center; padding-top: 36px; }
 
+.geo-hint {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  font-size: 13px; color: rgb(var(--content-secondary));
+}
+.geo-hint button {
+  font-size: 12px; font-family: var(--font-sans); cursor: pointer;
+  background: none; border: none; color: rgb(var(--content-brand));
+  padding: 0; text-decoration: underline;
+}
+
 /* PROCESS */
 .process-steps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-top: 8px; }
 .step { padding: 28px 24px 28px 0; border-top: 2px solid rgb(var(--border-tertiary)); position: relative; }
