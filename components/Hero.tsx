@@ -43,7 +43,7 @@ export default function Hero({ roleCount }: { roleCount: number }) {
         </p>
         <HeroCTAs />
         <div className="hero-media">
-          <ImageSlot src="/team-hero.png" alt="ImagineArt team" radius="24px" />
+          <ImageSlot src="https://framerusercontent.com/images/EcowqY2PPpA068I3akrGogaeO0.jpg" alt="ImagineArt team" radius="24px" />
         </div>
       </div>
     </div>

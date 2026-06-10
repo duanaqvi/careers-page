@@ -95,7 +95,7 @@ export function Gallery() {
         <div className="gallery-grid">
           {GALLERY.map((g) => (
             <div className={`gallery-item${g.span ? ` ${g.span}` : ""}`} key={g.id}>
-              <ImageSlot radius="20px" />
+              <ImageSlot src={g.src} alt={g.label} radius="20px" />
               <span className="glabel">{g.label}</span>
             </div>
           ))}
