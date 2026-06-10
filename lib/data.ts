@@ -8,9 +8,9 @@ export const STATS = [
 ];
 
 export const TEAM = [
-  { id: "team-1", name: "Ahmed Abubakr",    role: "Co-founder & CEO", li: "https://www.linkedin.com/in/ahmed-abubakar-9482127b/" },
-  { id: "team-2", name: "Abdullah Rafique", role: "Co-founder & CTO", li: "https://www.linkedin.com/in/abdullahrafiq/" },
-  { id: "team-3", name: "Zain ul Abedien",  role: "Co-founder & CGO", li: "https://www.linkedin.com/in/zain-vyro-ai/" },
+  { id: "team-1", name: "Ahmed Abubakr",    role: "Co-founder & CEO", li: "https://www.linkedin.com/in/ahmed-abubakar-9482127b/", photo: "/team-ahmed.jpg" },
+  { id: "team-2", name: "Abdullah Rafique", role: "Co-founder & CTO", li: "https://www.linkedin.com/in/abdullahrafiq/",            photo: "/team-abdullah.jpg" },
+  { id: "team-3", name: "Zain ul Abedien",  role: "Co-founder & CGO", li: "https://www.linkedin.com/in/zain-vyro-ai/",            photo: "/team-zain.jpg" },
 ];
 
 export const VALUES = [

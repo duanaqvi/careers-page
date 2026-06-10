@@ -338,16 +338,42 @@ a { color: inherit; }
 .perk-card p { font-size: 14px; line-height: 1.55; color: rgb(var(--content-secondary)); margin: 0; }
 
 /* GALLERY */
-.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 16px; }
-.gallery-item { position: relative; border-radius: var(--radius-5); overflow: hidden; }
-.gallery-item.tall { grid-row: span 2; }
-.gallery-item.wide { grid-column: span 2; }
-.gallery-item .image-slot { width: 100%; height: 100%; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 300px 220px 300px;
+  gap: 10px;
+  grid-template-areas:
+    "demo   sf      sf"
+    "demo   lahore  offsite"
+    "launch launch  pair";
+}
+.gallery-item:nth-child(1) { grid-area: demo; }
+.gallery-item:nth-child(2) { grid-area: sf; }
+.gallery-item:nth-child(3) { grid-area: lahore; }
+.gallery-item:nth-child(4) { grid-area: offsite; }
+.gallery-item:nth-child(5) { grid-area: launch; }
+.gallery-item:nth-child(6) { grid-area: pair; }
+.gallery-item {
+  position: relative; border-radius: var(--radius-5); overflow: hidden; cursor: pointer;
+}
+.gallery-item .image-slot { width: 100%; height: 100%; border-radius: 0 !important; }
+.gallery-item .image-slot img { transition: transform 600ms cubic-bezier(.16,1,.3,1); }
+.gallery-item:hover .image-slot img { transform: scale(1.06); }
+.gallery-item::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.65) 100%);
+}
+.gallery-item::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: 3; pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
 .gallery-item .glabel {
-  position: absolute; left: 14px; bottom: 14px; z-index: 4;
+  position: absolute; left: 16px; bottom: 16px; z-index: 4;
   display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: var(--radius-full);
-  background: rgba(0,0,0,0.42); backdrop-filter: blur(8px); color: #fff; font-size: 12px; font-weight: 500;
-  border: 1px solid rgba(255,255,255,0.14); pointer-events: none;
+  background: rgba(0,0,0,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: rgba(255,255,255,0.92); font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+  border: 1px solid rgba(255,255,255,0.15); pointer-events: none;
 }
 
 /* ROLES */
@@ -527,8 +553,14 @@ a { color: inherit; }
   .mission-grid { grid-template-columns: 1fr; gap: 32px; align-items: start; }
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .perks-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
-  .gallery-item.wide { grid-column: span 2; }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 220px 180px 220px;
+    grid-template-areas:
+      "demo   sf"
+      "lahore offsite"
+      "launch pair";
+  }
   .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
   .process-steps::before { display: none; }
   .hiring-teams { grid-template-columns: 1fr; gap: 24px; }
@@ -539,8 +571,14 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .wrap { padding: 0 20px; }
   .nav-inner { padding: 0 20px; }
-  .values-grid, .perks-grid, .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
+  .values-grid, .perks-grid { grid-template-columns: 1fr; }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-rows: 240px;
+    grid-template-areas: none;
+  }
+  .gallery-item:nth-child(n) { grid-area: unset; }
   .process-steps { grid-template-columns: 1fr; }
   .cta-band { padding: 48px 24px; }
   .roles-controls { flex-direction: column; align-items: stretch; }

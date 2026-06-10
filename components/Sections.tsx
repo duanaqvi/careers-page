@@ -62,7 +62,7 @@ export function Team() {
           {TEAM.map((m) => (
             <div className="team-card" key={m.id}>
               <div className="team-photo">
-                <ImageSlot radius="20px" />
+                <ImageSlot src={m.photo} radius="20px" />
                 <a
                   className="team-li"
                   href={m.li}
