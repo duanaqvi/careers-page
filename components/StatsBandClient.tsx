@@ -48,7 +48,7 @@ function AnimatedStat({ n, label }: { n: string; label: string }) {
   return (
     <div className="sb-stat" ref={ref}>
       <div className="sb-n gtext">
-        {prefix}{value >= 1000 ? count.toLocaleString() : value % 1 !== 0 ? count.toFixed(1) : count}{suffix}
+        {prefix}{suffix && value >= 1000 ? count.toLocaleString() : value % 1 !== 0 ? count.toFixed(1) : Math.round(count)}{suffix}
       </div>
       <div className="sb-l">{label}</div>
     </div>
