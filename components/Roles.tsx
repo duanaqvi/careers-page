@@ -136,6 +136,23 @@ export default function Roles({ roles }: { roles: Role[] }) {
 
   const shown = filtered.slice(0, limit);
 
+  // ── Clear filters ─────────────────────────────────────────────────────────
+  const hasFilters =
+    (dept !== null && dept !== "All") ||
+    country !== ALL_COUNTRIES ||
+    city !== ALL_CITIES ||
+    workplace !== "All" ||
+    q.trim() !== "";
+
+  const clearFilters = () => {
+    setDept("All");
+    setCountry(ALL_COUNTRIES);
+    setCity(ALL_CITIES);
+    setWorkplace("All");
+    setQ("");
+    setLimit(12);
+  };
+
   // ── Handlers ───────────────────────────────────────────────────────────────
   const handleDept      = (d: string) => { setDept(d); setLimit(12); };
   const handleCountry   = (c: string) => { setCountry(c); setCity(ALL_CITIES); setLimit(12); };
@@ -174,7 +191,8 @@ export default function Roles({ roles }: { roles: Role[] }) {
           </div>
         ) : (
           <>
-            {/* Controls */}
+            {/* Sticky controls */}
+            <div className="roles-controls-sticky">
             <div className="roles-controls">
               {/* Search */}
               <div className="search-wrap">
@@ -221,6 +239,12 @@ export default function Roles({ roles }: { roles: Role[] }) {
                 ))}
               </div>
 
+              {hasFilters && (
+                <button className="clear-filters-btn" onClick={clearFilters}>
+                  ✕ Clear filters
+                </button>
+              )}
+
               <Button
                 variant="ghost"
                 size="sm"
@@ -231,6 +255,7 @@ export default function Roles({ roles }: { roles: Role[] }) {
                 See all on Ashby
               </Button>
             </div>
+            </div>{/* /roles-controls-sticky */}
 
             {/* Geo hint */}
             {geoHint && (

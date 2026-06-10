@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Icon, Eyebrow, Button, ImageSlot } from "@/components/ui";
 import { STATS, TEAM, VALUES, PERKS, GALLERY, PROCESS, ASHBY_URL } from "@/lib/data";
+import StatsBandClient from "@/components/StatsBandClient";
 
 export function StatsBand() {
   return (
@@ -12,14 +13,7 @@ export function StatsBand() {
             <Eyebrow style={{ color: "rgb(var(--primary-70))" }}>By the numbers</Eyebrow>
             <h2>Bootstrapped from Pakistan to one of the world&apos;s top creative AI platforms.</h2>
           </div>
-          <div className="stats-band-grid">
-            {STATS.map((s) => (
-              <div key={s.label} className="sb-stat">
-                <div className="sb-n gtext">{s.n}</div>
-                <div className="sb-l">{s.label}</div>
-              </div>
-            ))}
-          </div>
+          <StatsBandClient stats={STATS} />
         </div>
       </div>
     </section>
@@ -169,7 +163,7 @@ export function Process() {
         <div className="process-steps">
           {PROCESS.map((s) => (
             <div className="step" key={s.n}>
-              <div className="step-n">{s.n}</div>
+              <div className="step-circle">{s.n}</div>
               <h3>{s.title}</h3>
               <p>{s.body}</p>
             </div>
