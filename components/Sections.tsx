@@ -9,7 +9,7 @@ export function StatsBand() {
       <div className="wrap">
         <div className="stats-band">
           <div className="glow" />
-          <div className="stats-band-head">
+          <div className="stats-band-head reveal">
             <Eyebrow style={{ color: "rgb(var(--primary-70))" }}>By the numbers</Eyebrow>
             <h2>Bootstrapped from Pakistan to one of the world&apos;s top creative AI platforms.</h2>
           </div>
@@ -24,7 +24,7 @@ export function Mission() {
   return (
     <section className="section" id="mission">
       <div className="wrap">
-        <div className="mission-grid">
+        <div className="mission-grid reveal">
           <div>
             <Eyebrow>Why ImagineArt</Eyebrow>
             <h2 className="mission-h">
@@ -53,14 +53,14 @@ export function Team() {
   return (
     <section className="section" id="team">
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <Eyebrow>Who you&apos;ll work with</Eyebrow>
           <h2>Meet the founders.</h2>
           <p>Three engineers who bootstrapped ImagineArt from scratch — and still ship alongside the team every week.</p>
         </div>
-        <div className="team-grid">
+        <div className="team-grid reveal-grid">
           {TEAM.map((m) => (
-            <div className="team-card" key={m.id}>
+            <div className="team-card reveal" key={m.id}>
               <div className="team-photo">
                 <ImageSlot src={m.photo} radius="20px" />
                 <a
@@ -87,14 +87,14 @@ export function Gallery() {
   return (
     <section className="section" id="life">
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <Eyebrow>Life at ImagineArt</Eyebrow>
           <h2>A small team that ships, together.</h2>
           <p>Demo Fridays, real ownership, and a few offsites a year.</p>
         </div>
-        <div className="gallery-grid">
+        <div className="gallery-grid reveal-grid">
           {GALLERY.map((g) => (
-            <div className={`gallery-item${g.span ? ` ${g.span}` : ""}`} key={g.id}>
+            <div className={`gallery-item reveal${g.span ? ` ${g.span}` : ""}`} key={g.id}>
               <ImageSlot src={g.src} alt={g.label} radius="20px" />
               <span className="glabel">{g.label}</span>
             </div>
@@ -109,14 +109,14 @@ export function Values() {
   return (
     <section className="section" id="values">
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <Eyebrow>How we work</Eyebrow>
           <h2>Six things we believe.</h2>
           <p>Not posters on a wall — the actual operating principles behind how we hire, build and decide.</p>
         </div>
-        <div className="values-grid">
+        <div className="values-grid reveal-grid">
           {VALUES.map((v) => (
-            <div className="value-card" key={v.title}>
+            <div className="value-card reveal" key={v.title}>
               <div className="v-icon"><Icon name={v.icon} size={22} /></div>
               <h3>{v.title}</h3>
               <p>{v.body}</p>
@@ -132,14 +132,14 @@ export function Perks() {
   return (
     <section className="section perks" id="perks">
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <Eyebrow>The package</Eyebrow>
           <h2>Set up to do your best work.</h2>
           <p>We take care of the essentials so you can focus on building things people love.</p>
         </div>
-        <div className="perks-grid">
+        <div className="perks-grid reveal-grid">
           {PERKS.map((p) => (
-            <div className="perk-card" key={p.title}>
+            <div className="perk-card reveal" key={p.title}>
               <div className="p-icon"><Icon name={p.icon} size={20} /></div>
               <h3>{p.title}</h3>
               <p>{p.body}</p>
@@ -155,14 +155,14 @@ export function Process() {
   return (
     <section className="section" id="process">
       <div className="wrap">
-        <div className="sec-head">
+        <div className="sec-head reveal">
           <Eyebrow>Hiring process</Eyebrow>
           <h2>What to expect.</h2>
           <p>We move fast — from first conversation to offer usually takes just 1–2 weeks.</p>
         </div>
-        <div className="process-steps">
+        <div className="process-steps reveal-grid">
           {PROCESS.map((s) => (
-            <div className="step" key={s.n}>
+            <div className="step reveal" key={s.n}>
               <div className="step-circle">{s.n}</div>
               <h3>{s.title}</h3>
               <p>{s.body}</p>

@@ -2,6 +2,7 @@ import { fetchRoles } from "@/lib/ashby";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Roles from "@/components/Roles";
+import AlertSignup from "@/components/AlertSignup";
 import {
   StatsBand,
   Mission,
@@ -19,6 +20,7 @@ export const revalidate = 3600;
 
 export default async function CareersPage() {
   const roles = await fetchRoles();
+  const departments = Array.from(new Set(roles.map((r) => r.dept))).sort();
 
   return (
     <>
@@ -34,6 +36,7 @@ export default async function CareersPage() {
         <Team />
         <Process />
         <Roles roles={roles} />
+        <AlertSignup departments={departments} />
         <CTA />
         <Footer />
       </main>

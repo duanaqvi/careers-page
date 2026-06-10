@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import RevealInit from "@/components/RevealInit";
 
 export const metadata: Metadata = {
   title: "Careers — ImagineArt",
@@ -21,7 +22,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body>{children}</body>
+      <body>
+        <RevealInit />
+        {children}
+      </body>
     </html>
   );
 }
