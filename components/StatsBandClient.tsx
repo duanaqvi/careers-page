@@ -14,10 +14,12 @@ function useCountUp(target: number, duration: number, started: boolean) {
     if (!started) return;
     let raf: number;
     let start: number | null = null;
+    const isDecimal = target % 1 !== 0;
     const tick = (ts: number) => {
       if (start === null) start = ts;
       const p = Math.min((ts - start) / duration, 1);
-      setCount(Math.round((1 - Math.pow(1 - p, 3)) * target));
+      const raw = (1 - Math.pow(1 - p, 3)) * target;
+      setCount(p >= 1 ? target : isDecimal ? Math.round(raw * 10) / 10 : Math.round(raw));
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -46,7 +48,7 @@ function AnimatedStat({ n, label }: { n: string; label: string }) {
   return (
     <div className="sb-stat" ref={ref}>
       <div className="sb-n gtext">
-        {prefix}{value >= 1000 ? count.toLocaleString() : count}{suffix}
+        {prefix}{value >= 1000 ? count.toLocaleString() : value % 1 !== 0 ? count.toFixed(1) : count}{suffix}
       </div>
       <div className="sb-l">{label}</div>
     </div>

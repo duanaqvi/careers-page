@@ -1,10 +1,10 @@
 export const ASHBY_URL = "https://jobs.ashbyhq.com/imagineart";
 
 export const STATS = [
-  { n: "100M+", label: "Creators worldwide" },
-  { n: "$35M+", label: "Annual recurring revenue" },
-  { n: "Top 3",  label: "Text-to-image models, globally" },
-  { n: "2018",   label: "Bootstrapped & building since" },
+  { n: "2.5B+",  label: "Images processed" },
+  { n: "15+",    label: "Products" },
+  { n: "800K+",  label: "Daily active users" },
+  { n: "150M+",  label: "Downloads" },
 ];
 
 export const TEAM = [
