@@ -223,7 +223,7 @@ export default function Roles({ roles }: { roles: Role[] }) {
 
               {/* Workplace toggle */}
               <div className="workplace-pills">
-                {["All", "On-site", "Remote", "Hybrid"].map((w) => (
+                {["All", "On-site", "Remote"].map((w) => (
                   <button
                     key={w}
                     className={`workplace-pill${workplace === w ? " active" : ""}`}
