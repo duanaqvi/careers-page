@@ -4,19 +4,26 @@ import { useState } from "react";
 import { Eyebrow } from "@/components/ui";
 
 export default function AlertSignup({ departments }: { departments: string[] }) {
-  const [email, setEmail]   = useState("");
-  const [dept, setDept]     = useState("Any department");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [name,    setName]    = useState("");
+  const [email,   setEmail]   = useState("");
+  const [dept,    setDept]    = useState("Any department");
+  const [li,      setLi]      = useState("");
+  const [status,  setStatus]  = useState<"idle" | "loading" | "success" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email.trim()) return;
+    if (!name.trim() || !email.trim()) return;
     setStatus("loading");
     try {
       const res = await fetch("/api/alert", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), department: dept }),
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          department: dept,
+          linkedIn: li.trim() || null,
+        }),
       });
       if (!res.ok) throw new Error();
       setStatus("success");
@@ -35,7 +42,7 @@ export default function AlertSignup({ departments }: { departments: string[] }) 
           </Eyebrow>
           <h2 className="alert-h">Don&apos;t see your fit?</h2>
           <p className="alert-sub">
-            Drop your email and we&apos;ll ping you when a matching role opens.
+            Drop your details and we&apos;ll ping you when a matching role opens.
           </p>
 
           {status === "success" ? (
@@ -45,26 +52,45 @@ export default function AlertSignup({ departments }: { departments: string[] }) 
             </div>
           ) : (
             <form className="alert-form" onSubmit={handleSubmit}>
-              <input
-                type="email"
-                required
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="alert-input"
-              />
-              <div className="alert-select-wrap">
-                <select
-                  value={dept}
-                  onChange={(e) => setDept(e.target.value)}
-                  className="alert-select"
-                >
-                  <option value="Any department">Any department</option>
-                  {departments.map((d) => (
-                    <option key={d} value={d}>{d}</option>
-                  ))}
-                </select>
-                <svg className="alert-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              <div className="alert-row">
+                <input
+                  type="text"
+                  required
+                  placeholder="Your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="alert-input"
+                />
+                <input
+                  type="email"
+                  required
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="alert-input"
+                />
+              </div>
+              <div className="alert-row">
+                <div className="alert-select-wrap">
+                  <select
+                    value={dept}
+                    onChange={(e) => setDept(e.target.value)}
+                    className="alert-select"
+                  >
+                    <option value="Any department">Any department</option>
+                    {departments.map((d) => (
+                      <option key={d} value={d}>{d}</option>
+                    ))}
+                  </select>
+                  <svg className="alert-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <input
+                  type="url"
+                  placeholder="LinkedIn URL (optional)"
+                  value={li}
+                  onChange={(e) => setLi(e.target.value)}
+                  className="alert-input"
+                />
               </div>
               <button
                 type="submit"
