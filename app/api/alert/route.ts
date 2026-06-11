@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 
 const BASE = "https://api.ashbyhq.com";
+// Talent Pool job — all role-alert signups land here as applications
+const TALENT_POOL_JOB_ID = "a6a3452b-07f0-4e5f-b183-41ab75a7cbe9";
 
 function ashbyAuth(apiKey: string) {
   return `Basic ${Buffer.from(`${apiKey}:`).toString("base64")}`;
@@ -42,16 +44,30 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  // Create candidate in Ashby
+  // 1. Create candidate
   const created = await ashbyPost(apiKey, "candidate.create", {
     name: nameFromEmail(email),
     email,
   }).catch((err) => { console.error("[alert] candidate.create failed", err); return null; });
 
-  // Add a note so recruiters can see department interest and source
-  if (created?.success && created.results?.id) {
+  if (!created?.success || !created.results?.id) {
+    // Candidate may already exist — still return success to the user
+    console.warn("[alert] candidate not created:", created?.errors ?? "unknown");
+    return NextResponse.json({ ok: true });
+  }
+
+  const candidateId: string = created.results.id;
+
+  // 2. Submit application against the Talent Pool job
+  const applied = await ashbyPost(apiKey, "application.create", {
+    jobId: TALENT_POOL_JOB_ID,
+    candidateId,
+  }).catch((err) => { console.error("[alert] application.create failed", err); return null; });
+
+  // 3. Add a note with department interest
+  if (applied?.success && applied.results?.id) {
     await ashbyPost(apiKey, "candidate.createNote", {
-      candidateId: created.results.id,
+      candidateId,
       note: `Role alert signup via careers page\nDepartment interest: ${department}`,
       sendNotifications: false,
     }).catch(() => {});
