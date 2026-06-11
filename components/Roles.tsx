@@ -97,7 +97,7 @@ export default function Roles({ roles }: { roles: Role[] }) {
   const departments = useMemo(() => {
     const seen = new Set<string>();
     roles.forEach((r) => seen.add(r.dept));
-    return ["All", ...Array.from(seen).sort()];
+    return [...Array.from(seen).sort(), "All"];
   }, [roles]);
 
   const countries = useMemo(() => {
@@ -174,7 +174,7 @@ export default function Roles({ roles }: { roles: Role[] }) {
             {departments.map((d) => (
               <button
                 key={d}
-                className={`team-pill${dept === d ? " active" : ""}`}
+                className={`team-pill${dept === d ? " active" : ""}${d === "All" ? " brand" : ""}`}
                 onClick={() => handleDept(d)}
               >
                 <span>{d === "All" ? "All teams" : d}</span>

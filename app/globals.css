@@ -433,6 +433,13 @@ a { color: inherit; }
 .team-pill:hover svg { transform: translateX(4px); }
 .team-pill.active { background: rgb(var(--fill-brand)); border-color: transparent; color: #fff; }
 .team-pill.active svg { transform: rotate(45deg); }
+.team-pill.brand {
+  border-color: rgb(var(--primary-50) / 0.5);
+  background: rgb(var(--fill-brand-secondary));
+  color: rgb(var(--content-brand));
+}
+.team-pill.brand:hover { border-color: rgb(var(--primary-50)); background: rgb(var(--primary-50) / 0.2); }
+.team-pill.brand.active { background: rgb(var(--fill-brand)); border-color: transparent; color: #fff; }
 
 .search-wrap { position: relative; display: flex; align-items: center; flex: 1; min-width: 200px; max-width: 280px; }
 .search-wrap .ic { position: absolute; left: 14px; color: rgb(var(--content-tertiary)); pointer-events: none; }
