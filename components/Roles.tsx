@@ -184,12 +184,7 @@ export default function Roles({ roles }: { roles: Role[] }) {
           </div>
         </div>
 
-        {dept === null ? (
-          <div className="roles-prompt">
-            <Icon name="arrow-up-right" size={22} />
-            <p>Pick a team above to see its open roles.</p>
-          </div>
-        ) : (
+        {dept !== null && (
           <>
             {/* Sticky controls */}
             <div className="roles-controls-sticky">

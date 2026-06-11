@@ -11,7 +11,6 @@ import {
   Values,
   Perks,
   Process,
-  CTA,
   Footer,
 } from "@/components/Sections";
 
@@ -37,7 +36,6 @@ export default async function CareersPage() {
         <Process />
         <Roles roles={roles} />
         <AlertSignup departments={departments} />
-        <CTA />
         <Footer />
       </main>
     </>

@@ -174,25 +174,6 @@ export function Process() {
   );
 }
 
-export function CTA() {
-  return (
-    <section className="section-tight">
-      <div className="wrap">
-        <div className="cta-band">
-          <div className="glow" />
-          <h2>Don&apos;t see your role?</h2>
-          <p>We&apos;re always meeting exceptional people. Tell us what you&apos;d build and why it should exist.</p>
-          <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <Button variant="brand" size="lg" icon="arrow-right" href={ASHBY_URL}>
-              Browse all roles
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function Footer() {
   return (
     <footer className="footer">
@@ -204,7 +185,6 @@ export function Footer() {
         <div className="footer-links">
           <a href={ASHBY_URL} target="_blank" rel="noreferrer">Open roles</a>
           <a href="https://www.imagine.art/" target="_blank" rel="noreferrer">Product</a>
-          <a href="mailto:talent@imagine.art">talent@imagine.art</a>
         </div>
         <small>© 2026 ImagineArt</small>
       </div>
