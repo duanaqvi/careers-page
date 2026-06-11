@@ -36,7 +36,7 @@ export default async function CareersPage() {
         <Team />
         <Process />
         <Roles roles={roles} />
-        <AlertSignup />
+        <AlertSignup departments={departments} />
         <CTA />
         <Footer />
       </main>
