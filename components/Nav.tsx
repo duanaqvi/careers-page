@@ -28,7 +28,7 @@ export default function Nav() {
         <div className="nav-links">
           <a onClick={() => scrollToId("mission")}>Mission</a>
           <a onClick={() => scrollToId("life")}>Life</a>
-          <a onClick={() => scrollToId("team")}>Founders</a>
+          <a onClick={() => scrollToId("team")}>Team</a>
           <a onClick={() => scrollToId("process")}>Process</a>
         </div>
         <button className="nav-cta" onClick={() => scrollToId("roles")}>
