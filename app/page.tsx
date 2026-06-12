@@ -137,14 +137,14 @@ export default async function CareersPage() {
     },
   };
 
-  const allSchemas = [organizationSchema, webPageSchema, faqSchema, ...jobPostingSchemas];
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(allSchemas) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      {jobPostingSchemas.map((s) => (
+        <script key={s.identifier.value} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
       <div className="ambient" />
       <Nav />
       <main className="page" id="top">

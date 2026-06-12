@@ -42,23 +42,14 @@ export const metadata: Metadata = {
     title: "Careers at ImagineArt — Build AI for 800K+ Daily Creators",
     description:
       "Join the small team building the world's leading creative AI platform. Open roles in engineering, design, and marketing.",
-    images: [
-      {
-        url: "/og-careers.png",
-        width: 1200,
-        height: 630,
-        alt: "ImagineArt Careers — Build AI for 800K+ Daily Creators",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     site: "@imagine_art",
     creator: "@imagine_art",
     title: "Careers at ImagineArt — Build AI for 800K+ Creators",
     description:
       "Join the small team building the world's leading creative AI platform. Browse open roles.",
-    images: ["/og-careers.png"],
   },
 };
 
