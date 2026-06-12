@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { Eyebrow } from "@/components/ui";
 
-export default function AlertSignup({ departments }: { departments: string[] }) {
-  const [name,    setName]    = useState("");
-  const [email,   setEmail]   = useState("");
-  const [dept,    setDept]    = useState("Any department");
-  const [li,      setLi]      = useState("");
-  const [status,  setStatus]  = useState<"idle" | "loading" | "success" | "error">("idle");
+export default function AlertSignup({ departments: _ }: { departments: string[] }) {
+  const [name,   setName]   = useState("");
+  const [email,  setEmail]  = useState("");
+  const [about,  setAbout]  = useState("");
+  const [li,     setLi]     = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -21,7 +21,7 @@ export default function AlertSignup({ departments }: { departments: string[] }) 
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
-          department: dept,
+          about: about.trim() || null,
           linkedIn: li.trim() || null,
         }),
       });
@@ -70,28 +70,20 @@ export default function AlertSignup({ departments }: { departments: string[] }) 
                   className="alert-input"
                 />
               </div>
-              <div className="alert-row">
-                <div className="alert-select-wrap">
-                  <select
-                    value={dept}
-                    onChange={(e) => setDept(e.target.value)}
-                    className="alert-select"
-                  >
-                    <option value="Any department">Any department</option>
-                    {departments.map((d) => (
-                      <option key={d} value={d}>{d}</option>
-                    ))}
-                  </select>
-                  <svg className="alert-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-                <input
-                  type="url"
-                  placeholder="LinkedIn URL (optional)"
-                  value={li}
-                  onChange={(e) => setLi(e.target.value)}
-                  className="alert-input"
-                />
-              </div>
+              <textarea
+                placeholder="What are you great at, and which role would you want — even if it's not listed?"
+                value={about}
+                onChange={(e) => setAbout(e.target.value)}
+                className="alert-textarea"
+                rows={3}
+              />
+              <input
+                type="url"
+                placeholder="LinkedIn URL (optional)"
+                value={li}
+                onChange={(e) => setLi(e.target.value)}
+                className="alert-input"
+              />
               <button
                 type="submit"
                 disabled={status === "loading"}

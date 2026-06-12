@@ -21,10 +21,10 @@ async function ashbyPost(apiKey: string, endpoint: string, body: object) {
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const name: string       = (body.name     ?? "").trim();
-  const email: string      = (body.email    ?? "").trim().toLowerCase();
-  const department: string = (body.department ?? "Any").trim();
-  const linkedIn: string   = (body.linkedIn  ?? "").trim();
+  const name: string     = (body.name    ?? "").trim();
+  const email: string    = (body.email   ?? "").trim().toLowerCase();
+  const about: string    = (body.about   ?? "").trim();
+  const linkedIn: string = (body.linkedIn ?? "").trim();
 
   if (!name || !email || !email.includes("@")) {
     return NextResponse.json({ error: "name and email are required" }, { status: 400 });
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
 
   const apiKey = process.env.ASHBY_API_KEY;
   if (!apiKey) {
-    console.log("[alert signup]", { name, email, department, linkedIn });
+    console.log("[alert signup]", { name, email, about, linkedIn });
     return NextResponse.json({ ok: true });
   }
 
@@ -60,8 +60,8 @@ export async function POST(req: Request) {
   if (applied?.success && applied.results?.id) {
     const noteLines = [
       `Source: Role alert signup via careers page`,
-      `Department interest: ${department}`,
-      linkedIn ? `LinkedIn: ${linkedIn}` : null,
+      about    ? `About: ${about}`        : null,
+      linkedIn ? `LinkedIn: ${linkedIn}`  : null,
     ].filter(Boolean).join("\n");
 
     await ashbyPost(apiKey, "candidate.createNote", {

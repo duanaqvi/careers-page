@@ -622,6 +622,15 @@ a { color: inherit; }
 }
 .alert-input:focus { border-color: rgb(var(--border-brand)); }
 .alert-input::placeholder { color: rgb(var(--content-tertiary)); }
+.alert-textarea {
+  width: 100%; padding: 12px 16px; min-width: 0;
+  border-radius: var(--radius-3);
+  background: rgb(var(--fill-primary)); border: 1px solid rgb(var(--border-primary));
+  color: rgb(var(--content-primary)); font-size: 14px; font-family: inherit; line-height: 1.6;
+  transition: border-color 150ms ease; outline: none; resize: vertical; min-height: 88px;
+}
+.alert-textarea:focus { border-color: rgb(var(--border-brand)); }
+.alert-textarea::placeholder { color: rgb(var(--content-tertiary)); }
 .alert-select-wrap { position: relative; }
 .alert-select {
   height: 44px; padding: 0 40px 0 14px; width: 100%;
