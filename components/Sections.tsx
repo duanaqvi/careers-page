@@ -163,9 +163,16 @@ export function Process() {
         <div className="process-steps reveal-grid">
           {PROCESS.map((s) => (
             <div className="step reveal" key={s.n}>
-              <div className="step-circle">{s.n}</div>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
+              {s.img && (
+                <div className="step-img">
+                  <Image src={s.img} alt={s.title} fill sizes="260px" style={{ objectFit: "cover" }} />
+                </div>
+              )}
+              <div className="step-body" data-n={s.n}>
+                <div className="step-circle">{s.n}</div>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </div>
             </div>
           ))}
         </div>
