@@ -1,0 +1,76 @@
+# ImagineArt
+
+> ImagineArt is a creative AI platform that lets anyone generate images, video, and music using frontier AI models on a single canvas. Founded in 2018, bootstrapped from Pakistan, now one of the world's top creative AI platforms.
+
+## Company Overview
+
+- **Founded:** 2018
+- **Headquarters:** Islamabad, Pakistan (also SF office)
+- **Stage:** Growth-stage, profitable, bootstrapped — no outside funding
+- **Daily Active Users:** 800,000+
+- **Total Downloads:** 150 million+
+- **Annual Recurring Revenue:** $35M+
+- **Team size:** Small (< 50 people)
+
+## Founders
+
+- **Ahmed Abubakr** — Co-founder & CEO. LinkedIn: https://www.linkedin.com/in/ahmed-abubakar-9482127b/
+- **Abdullah Rafique** — Co-founder & CTO. LinkedIn: https://www.linkedin.com/in/abdullahrafiq/
+- **Zain ul Abedien** — Co-founder & CGO. LinkedIn: https://www.linkedin.com/in/zain-vyro-ai/
+
+## Product
+
+ImagineArt bundles every frontier AI model — image generation, video synthesis, music creation, and editing — into one creative canvas. Users can generate without switching tools or tabs.
+
+Website: https://www.imagine.art
+
+## Careers
+
+ImagineArt is actively hiring across engineering, design, and marketing.
+
+- **Careers page:** https://imagine.art/careers
+- **All open roles:** https://jobs.ashbyhq.com/imagineart
+- **Contact:** talent@imagine.art
+
+### Current hiring areas
+
+- Engineering: ML, Full Stack, Frontend, MLOps, Agentic AI
+- Product & Design: Product Designer, Graphic Designer
+- Growth & Marketing: Creator Community Manager
+- Operations: Sales Development Representative
+
+### Hiring process (1–2 weeks total)
+
+1. Apply — two minutes, no cover letter, show something you've made
+2. Intro call — HR round to understand what you're looking for
+3. Technical round — deep-dive with the technical lead
+4. Task round — work through a real problem the way you actually work
+5. Co-founder round — meet a founder, discuss vision and values
+6. Offer — fast decisions
+
+### Location
+
+Most engineering roles are on-site in **Islamabad, Pakistan**. Select roles (e.g. Principal AI Engineer) are **fully remote** and open worldwide.
+
+## Values
+
+- Taste is a feature — craft and aesthetic judgment are core to what ships
+- Creators come first — every decision starts with the maker using the product
+- Ship at the speed of AI — prototype in days, launch in weeks
+- Small teams, huge surface — real ownership over large problems
+- Show, don't tell — working demos beat decks
+- Own the outcome — not the task, the result
+
+## Frequently Asked Questions
+
+**Where is ImagineArt based?**
+Islamabad, Pakistan, with a San Francisco office. Remote roles exist.
+
+**How long does hiring take?**
+1–2 weeks from first conversation to offer.
+
+**Is ImagineArt funded?**
+No — bootstrapped from Day 1 and profitable.
+
+**What makes ImagineArt different to work at?**
+You ship to 800K+ daily users within weeks of joining. Small team, huge scope, no red tape.
