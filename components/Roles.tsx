@@ -122,9 +122,11 @@ export default function Roles({ roles }: { roles: Role[] }) {
   const filtered = useMemo(() => {
     return roles.filter((r) => {
       if (dept !== "All" && r.dept !== dept) return false;
-      const l = locOf(r.loc);
-      if (country !== ALL_COUNTRIES && l.country !== country) return false;
-      if (city !== ALL_CITIES && l.city !== city) return false;
+      if (r.workplace !== "Remote") {
+        const l = locOf(r.loc);
+        if (country !== ALL_COUNTRIES && l.country !== country) return false;
+        if (city !== ALL_CITIES && l.city !== city) return false;
+      }
       if (workplace !== "All" && r.workplace !== workplace) return false;
       if (q.trim()) {
         const s = (r.title + " " + r.dept + " " + r.loc).toLowerCase();
