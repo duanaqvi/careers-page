@@ -20,6 +20,27 @@ function mapEmploymentType(raw: string): string {
   return map[raw] ?? raw;
 }
 
+// Priority score for picking the canonical version of a duplicated title.
+// Remote jobs come first (most relevant to global candidates), then Islamabad
+// (the primary office), then anything else.
+function locationScore(r: Role): number {
+  if (r.workplace === "Remote") return 2;
+  if (r.loc === "Islamabad")    return 1;
+  return 0;
+}
+
+function deduplicateByTitle(roles: Role[]): Role[] {
+  const best = new Map<string, Role>();
+  for (const role of roles) {
+    const key = role.title.toLowerCase();
+    const existing = best.get(key);
+    if (!existing || locationScore(role) > locationScore(existing)) {
+      best.set(key, role);
+    }
+  }
+  return Array.from(best.values());
+}
+
 export async function fetchRoles(): Promise<Role[]> {
   const apiKey = process.env.ASHBY_API_KEY;
   if (!apiKey) {
@@ -44,11 +65,11 @@ export async function fetchRoles(): Promise<Role[]> {
     const data = await res.json();
     if (!data.success || !Array.isArray(data.results)) throw new Error("Unexpected Ashby response");
 
-    return data.results
+    const all: Role[] = data.results
       .filter((j: Record<string, unknown>) => j.isListed !== false)
       .map((j: Record<string, unknown>) => ({
         id: String(j.id ?? ""),
-        title: String(j.title ?? ""),
+        title: String(j.title ?? "").trim(),
         dept: String(j.departmentName ?? "Other"),
         loc: String(j.locationName ?? "Remote"),
         type: mapEmploymentType(String(j.employmentType ?? "FullTime")),
@@ -56,6 +77,8 @@ export async function fetchRoles(): Promise<Role[]> {
         workplace: j.workplaceType === "Remote" ? "Remote" : j.workplaceType === "Hybrid" ? "Hybrid" : "On-site",
         url: String(j.externalLink ?? j.applyLink ?? ""),
       }));
+
+    return deduplicateByTitle(all);
   } catch (err) {
     console.error("Failed to fetch Ashby roles:", err);
     return STATIC_ROLES;
