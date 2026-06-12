@@ -85,10 +85,14 @@ export function Team() {
             <div className="member-card reveal" key={m.id}>
               <div className="member-photo">
                 <ImageSlot src={m.photo} radius="14px" />
-                {m.li && (
+                {m.li ? (
                   <a className="team-li" href={m.li} target="_blank" rel="noreferrer" aria-label={`${m.name} on LinkedIn`}>
                     <Icon name="linkedin" size={16} />
                   </a>
+                ) : (
+                  <span className="team-li" style={{ opacity: 0.35, cursor: "default" }}>
+                    <Icon name="linkedin" size={16} />
+                  </span>
                 )}
               </div>
               <div className="member-name">{m.name}</div>
