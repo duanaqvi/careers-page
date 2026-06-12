@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Icon, Eyebrow, Button, ImageSlot } from "@/components/ui";
-import { STATS, TEAM, VALUES, PERKS, GALLERY, PROCESS, ASHBY_URL } from "@/lib/data";
+import { STATS, FOUNDERS, TEAM, VALUES, PERKS, GALLERY, PROCESS, ASHBY_URL } from "@/lib/data";
 import StatsBandClient from "@/components/StatsBandClient";
 
 export function StatsBand() {
@@ -55,26 +55,44 @@ export function Team() {
       <div className="wrap">
         <div className="sec-head reveal">
           <Eyebrow>Who you&apos;ll work with</Eyebrow>
-          <h2>Meet the founders.</h2>
-          <p>Three engineers who bootstrapped ImagineArt from scratch — and still ship alongside the team every week.</p>
+          <h2>The people behind ImagineArt.</h2>
+          <p>Founders who still ship code daily, and a team that moves like a startup inside one.</p>
         </div>
+
+        {/* Founders */}
+        <div className="team-label reveal">Founders</div>
         <div className="team-grid reveal-grid">
-          {TEAM.map((m) => (
+          {FOUNDERS.map((m) => (
             <div className="team-card reveal" key={m.id}>
               <div className="team-photo">
                 <ImageSlot src={m.photo} radius="20px" />
-                <a
-                  className="team-li"
-                  href={m.li}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${m.name} on LinkedIn`}
-                >
-                  <Icon name="linkedin" size={18} />
-                </a>
+                {m.li && (
+                  <a className="team-li" href={m.li} target="_blank" rel="noreferrer" aria-label={`${m.name} on LinkedIn`}>
+                    <Icon name="linkedin" size={18} />
+                  </a>
+                )}
               </div>
               <div className="team-name">{m.name}</div>
               <div className="team-role">{m.role}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Broader team */}
+        <div className="team-label reveal" style={{ marginTop: 48 }}>Team</div>
+        <div className="team-members-grid reveal-grid">
+          {TEAM.map((m) => (
+            <div className="member-card reveal" key={m.id}>
+              <div className="member-photo">
+                <ImageSlot src={m.photo} radius="14px" />
+                {m.li && (
+                  <a className="team-li" href={m.li} target="_blank" rel="noreferrer" aria-label={`${m.name} on LinkedIn`}>
+                    <Icon name="linkedin" size={16} />
+                  </a>
+                )}
+              </div>
+              <div className="member-name">{m.name}</div>
+              <div className="member-role">{m.role}</div>
             </div>
           ))}
         </div>

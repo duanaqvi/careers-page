@@ -7,10 +7,21 @@ export const STATS = [
   { n: "2018",   label: "Building since" },
 ];
 
+export const FOUNDERS = [
+  { id: "founder-1", name: "Ahmed Abubakr",    role: "Co-founder & CEO", li: "https://www.linkedin.com/in/ahmed-abubakar-9482127b/", photo: "/team-ahmed.jpg" },
+  { id: "founder-2", name: "Abdullah Rafique", role: "Co-founder & CTO", li: "https://www.linkedin.com/in/abdullahrafiq/",            photo: "/team-abdullah.jpg" },
+  { id: "founder-3", name: "Zain ul Abedien",  role: "Co-founder & CGO", li: "https://www.linkedin.com/in/zain-vyro-ai/",            photo: "/team-zain.jpg" },
+];
+
 export const TEAM = [
-  { id: "team-1", name: "Ahmed Abubakr",    role: "Co-founder & CEO", li: "https://www.linkedin.com/in/ahmed-abubakar-9482127b/", photo: "/team-ahmed.jpg" },
-  { id: "team-2", name: "Abdullah Rafique", role: "Co-founder & CTO", li: "https://www.linkedin.com/in/abdullahrafiq/",            photo: "/team-abdullah.jpg" },
-  { id: "team-3", name: "Zain ul Abedien",  role: "Co-founder & CGO", li: "https://www.linkedin.com/in/zain-vyro-ai/",            photo: "/team-zain.jpg" },
+  { id: "team-1",  name: "Muhammad Aqib Sher", role: "Creative & Socials",    photo: "/team-aqib.jpg",    li: "" },
+  { id: "team-2",  name: "Saad Ahmed",          role: "Product",               photo: "/team-saad.jpg",    li: "" },
+  { id: "team-3",  name: "Saif ur Rehman",      role: "Product",               photo: "/team-saif.jpg",    li: "" },
+  { id: "team-4",  name: "Zahida Misher",        role: "Enterprise Marketing",  photo: "/team-zahida.jpg",  li: "" },
+  { id: "team-5",  name: "Zakria Amir",          role: "Enterprise Marketing",  photo: "/team-zakria.jpg",  li: "" },
+  { id: "team-6",  name: "Subah",                role: "Enterprise Sales",      photo: "/team-subah.jpg",   li: "" },
+  { id: "team-7",  name: "M Rizwan",             role: "Enterprise Sales",      photo: "/team-rizwan.jpg",  li: "" },
+  { id: "team-8",  name: "Muneeb",               role: "Soul",                  photo: "/team-muneeb.jpg",  li: "" },
 ];
 
 export const VALUES = [

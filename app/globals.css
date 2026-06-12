@@ -307,6 +307,11 @@ a { color: inherit; }
 .sb-l { font-size: 14px; color: rgb(var(--content-primary-inverse) / 0.65); margin-top: 8px; }
 
 /* TEAM */
+.team-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgb(var(--content-tertiary)); margin-bottom: 20px;
+}
+/* Founders — 3-col, tall portrait cards */
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .team-card { display: flex; flex-direction: column; }
 .team-photo { position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: var(--radius-5); overflow: hidden; margin-bottom: 14px; }
@@ -319,6 +324,21 @@ a { color: inherit; }
 .team-li:hover { background: rgb(var(--fill-brand)); border-color: transparent; transform: translateY(-2px); }
 .team-name { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
 .team-role { font-size: 13px; color: rgb(var(--content-secondary)); margin-top: 3px; }
+/* Broader team — 4-col, square cards */
+.team-members-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.member-card {
+  display: flex; flex-direction: column;
+  border-radius: var(--radius-5); overflow: hidden;
+  border: 1px solid rgb(var(--border-primary));
+  background: rgb(var(--fill-secondary) / 0.5);
+  transition: border-color 240ms ease, transform 240ms cubic-bezier(.16,1,.3,1);
+}
+.member-card:hover { border-color: rgb(var(--border-secondary)); transform: translateY(-4px); }
+.member-photo { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; }
+.member-photo .image-slot { width: 100%; height: 100%; }
+.member-photo .team-li { width: 30px; height: 30px; right: 8px; bottom: 8px; }
+.member-name { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; padding: 12px 14px 2px; }
+.member-role { font-size: 12px; color: rgb(var(--content-secondary)); padding: 0 14px 14px; }
 
 /* MISSION */
 .mission-h { font-size: clamp(30px, 3.8vw, 52px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; margin: 22px 0 0; max-width: 16ch; }
@@ -732,6 +752,7 @@ a { color: inherit; }
   .stats-band { grid-template-columns: 1fr; gap: 32px; padding: 40px; }
   .stats-band-grid { grid-template-columns: repeat(2, 1fr); }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
+  .team-members-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
   .wrap { padding: 0 20px; }
@@ -753,4 +774,5 @@ a { color: inherit; }
   .team-pill { height: 54px; padding: 0 22px; font-size: 19px; gap: 10px; }
   .stats-band { padding: 32px 24px; }
   .team-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+  .team-members-grid { grid-template-columns: repeat(2, 1fr); }
 }
