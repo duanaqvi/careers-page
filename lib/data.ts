@@ -44,14 +44,13 @@ export const PERKS = [
   { icon: "plane",    title: "Team offsites",              body: "We gather a few times a year to build in person." },
 ];
 
-const CDN = "https://framerusercontent.com/images";
 export const GALLERY = [
-  { id: "life-1", label: "Demo Friday",  span: "tall", src: `${CDN}/jmxBPdHIy2dJDY9CF9aeV4tY6c.jpg` },
-  { id: "life-2", label: "SF studio",    span: "wide", src: `${CDN}/4B1DAZY9OD3hDZOcWwVOlRgDSSY.jpg` },
-  { id: "life-3", label: "Lahore HQ",    span: "",     src: `${CDN}/iI16TTnsE9vNK2qI0B2MmZYhJQ.jpg` },
-  { id: "life-4", label: "Offsite '25",  span: "",     src: `${CDN}/SlO845kqTXKByJBkvjwiG0inmg.jpg` },
-  { id: "life-5", label: "Launch day",   span: "wide", src: `${CDN}/nkydwoIgGKar8XGeYMpml8NPh0.jpg` },
-  { id: "life-6", label: "Pair session", span: "tall", src: `${CDN}/1wanlbRPSuPFKqm4oPY1R7I4Q0.jpg` },
+  { id: "life-1", label: "Demo Friday",  span: "tall", src: "/life-demo.jpg" },
+  { id: "life-2", label: "SF studio",    span: "wide", src: "/life-sf.jpg" },
+  { id: "life-3", label: "Lahore HQ",    span: "",     src: "/life-lahore.jpg" },
+  { id: "life-4", label: "Offsite '25",  span: "",     src: "/life-offsite.jpg" },
+  { id: "life-5", label: "Launch day",   span: "wide", src: "/life-launch.jpg" },
+  { id: "life-6", label: "Pair session", span: "tall", src: "/life-pair.jpg" },
 ];
 
 export const PROCESS = [
