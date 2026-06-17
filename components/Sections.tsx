@@ -179,7 +179,7 @@ export function Process() {
         <div className="sec-head reveal">
           <Eyebrow>Hiring process</Eyebrow>
           <h2>What to expect.</h2>
-          <p>We move fast — with most hiring decisions made within 1–2 weeks.</p>
+          <p>We move fast with most hiring decisions made within 1–2 weeks.</p>
         </div>
         <div className="process-steps reveal-grid">
           {PROCESS.map((s) => (
