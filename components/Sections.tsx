@@ -24,6 +24,10 @@ export function Mission() {
   return (
     <section className="section" id="mission">
       <div className="wrap">
+        <div className="mission-tagline reveal">
+          Most people have ideas they can&apos;t yet make real — we are changing that.
+          An all-in-one platform, just without the tabs, jargon, or the massive budgets.
+        </div>
         <div className="mission-grid reveal">
           <div>
             <Eyebrow>Why ImagineArt</Eyebrow>
@@ -112,7 +116,7 @@ export function Gallery() {
         <div className="sec-head reveal">
           <Eyebrow>Life at ImagineArt</Eyebrow>
           <h2>A small team that ships, together.</h2>
-          <p>Demo Fridays, real ownership, and a few offsites a year.</p>
+          <p>Where ambitious people come to build, learn, and create together.</p>
         </div>
         <div className="gallery-grid reveal-grid">
           {GALLERY.map((g) => (
@@ -180,7 +184,7 @@ export function Process() {
         <div className="sec-head reveal">
           <Eyebrow>Hiring process</Eyebrow>
           <h2>What to expect.</h2>
-          <p>We move fast — from first conversation to offer usually takes just 1–2 weeks.</p>
+          <p>We move fast — most hiring decisions are made within 1–2 weeks.</p>
         </div>
         <div className="process-steps reveal-grid">
           {PROCESS.map((s) => (

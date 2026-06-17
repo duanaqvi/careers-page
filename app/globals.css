@@ -377,6 +377,14 @@ a { color: inherit; }
 .perk-card h3 { font-size: 17px; font-weight: 600; margin: 0 0 7px; letter-spacing: -0.01em; }
 .perk-card p { font-size: 14px; line-height: 1.55; color: rgb(var(--content-secondary)); margin: 0; }
 
+/* MISSION TAGLINE */
+.mission-tagline {
+  font-size: clamp(18px, 2vw, 24px); font-weight: 500; line-height: 1.5;
+  color: rgb(var(--content-secondary)); max-width: 780px;
+  padding-bottom: 56px; border-bottom: 1px solid rgb(var(--border-primary));
+  margin-bottom: 56px;
+}
+
 /* GALLERY */
 .gallery-grid {
   display: grid;
