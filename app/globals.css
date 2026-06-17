@@ -417,19 +417,17 @@ a { color: inherit; }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 300px 220px 300px;
+  grid-template-rows: 360px 280px;
   gap: 10px;
   grid-template-areas:
-    "demo   sf      sf"
-    "demo   lahore  offsite"
-    "launch launch  pair";
+    "team  event  meet"
+    "meet2 meet2  launch";
 }
-.gallery-item:nth-child(1) { grid-area: demo; }
-.gallery-item:nth-child(2) { grid-area: sf; }
-.gallery-item:nth-child(3) { grid-area: lahore; }
-.gallery-item:nth-child(4) { grid-area: offsite; }
+.gallery-item:nth-child(1) { grid-area: team; }
+.gallery-item:nth-child(2) { grid-area: event; }
+.gallery-item:nth-child(3) { grid-area: meet; }
+.gallery-item:nth-child(4) { grid-area: meet2; }
 .gallery-item:nth-child(5) { grid-area: launch; }
-.gallery-item:nth-child(6) { grid-area: pair; }
 .gallery-item {
   position: relative; border-radius: var(--radius-5); overflow: hidden; cursor: pointer;
 }
@@ -784,11 +782,11 @@ a { color: inherit; }
   .perks-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 220px 180px 220px;
+    grid-template-rows: 260px 200px 200px;
     grid-template-areas:
-      "demo   sf"
-      "lahore offsite"
-      "launch pair";
+      "team   event"
+      "meet   meet2"
+      "launch launch";
   }
   .process-steps { grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .process-steps::before { display: none; }
