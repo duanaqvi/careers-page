@@ -39,8 +39,8 @@ export default function Hero({ roleCount }: { roleCount: number }) {
         </h1>
         <p className="hero-sub">
           We&apos;re building AI that&apos;s already powering creativity for 100M+ creators worldwide.<br />
-          Images, video, music, and editing, all on one canvas.<br />
-          Do you want to join the team?
+          Images, video, music, and editing, all on one canvas.
+          <span className="hero-question">Do you want to join the team?</span>
         </p>
         <HeroCTAs />
         <div className="hero-media">

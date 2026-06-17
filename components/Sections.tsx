@@ -106,7 +106,7 @@ export function Team() {
 
 export function Gallery() {
   return (
-    <section className="section" id="life">
+    <section className="section section-bordered" id="life">
       <div className="wrap">
         <div className="sec-head reveal">
           <Eyebrow>Life at ImagineArt</Eyebrow>
@@ -128,7 +128,7 @@ export function Gallery() {
 
 export function Values() {
   return (
-    <section className="section" id="values">
+    <section className="section section-bordered" id="values">
       <div className="wrap">
         <div className="sec-head reveal">
           <Eyebrow>How we work</Eyebrow>
@@ -174,7 +174,7 @@ export function Perks() {
 
 export function Process() {
   return (
-    <section className="section" id="process">
+    <section className="section section-bordered" id="process">
       <div className="wrap">
         <div className="sec-head reveal">
           <Eyebrow>Hiring process</Eyebrow>
