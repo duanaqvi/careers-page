@@ -45,12 +45,12 @@ export const PERKS = [
 ];
 
 export const GALLERY = [
-  { id: "life-1", label: "Demo Friday",  span: "tall", src: "/life-demo.jpg" },
-  { id: "life-2", label: "SF studio",    span: "wide", src: "/life-sf.jpg" },
-  { id: "life-3", label: "Lahore HQ",    span: "",     src: "/life-lahore.jpg" },
-  { id: "life-4", label: "Offsite '25",  span: "",     src: "/life-offsite.jpg" },
-  { id: "life-5", label: "Launch day",   span: "wide", src: "/life-launch.jpg" },
-  { id: "life-6", label: "Pair session", span: "tall", src: "/life-pair.jpg" },
+  { id: "life-1", label: "", span: "tall", src: "/life-demo.jpg" },
+  { id: "life-2", label: "", span: "wide", src: "/life-sf.jpg" },
+  { id: "life-3", label: "", span: "",     src: "/life-lahore.jpg" },
+  { id: "life-4", label: "", span: "",     src: "/life-offsite.jpg" },
+  { id: "life-5", label: "", span: "wide", src: "/life-launch.jpg" },
+  { id: "life-6", label: "", span: "tall", src: "/life-pair.jpg" },
 ];
 
 export const PROCESS = [

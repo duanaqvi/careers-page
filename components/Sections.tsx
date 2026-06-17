@@ -117,6 +117,7 @@ export function Gallery() {
           {GALLERY.map((g) => (
             <div className={`gallery-item reveal${g.span ? ` ${g.span}` : ""}`} key={g.id}>
               <ImageSlot src={g.src} alt={g.label} radius="20px" />
+              {g.label && <span className="glabel">{g.label}</span>}
             </div>
           ))}
         </div>
