@@ -57,8 +57,8 @@ export const GALLERY = [
 export const PROCESS = [
   { n: "01", title: "Apply",            body: "Two minutes, no cover letter. Show us something you've made.",       img: "/process-01-apply.png" },
   { n: "02", title: "Intro call",       body: "An HR round to get to know you and what you're looking for.",       img: "/process-02-intro.png" },
-  { n: "03", title: "Technical round",  body: "A deep-dive with the technical lead for your team.",                img: "/process-03-technical.png" },
+  { n: "03", title: "Technical interview", body: "A deep-dive with the technical lead for your team.",              img: "/process-03-technical.png" },
   { n: "04", title: "Task round",       body: "Work through a real problem the way you actually work.",            img: "/process-04-task.png" },
-  { n: "05", title: "Co-founder round", body: "Meet a founder — vision, values and where you fit in.",             img: "/process-05-founder.png" },
+  { n: "05", title: "Meeting the founders", body: "Meet a founder — vision, values and where you fit in.",          img: "/process-05-founder.png" },
   { n: "06", title: "Offer",            body: "Fast decisions. We move at the speed we expect from you.",          img: "/process-06-offer.png" },
 ];
