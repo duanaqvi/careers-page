@@ -37,9 +37,8 @@ export function Mission() {
           </div>
           <div className="mission-body">
             <p>
-              Most people have ideas they can&apos;t yet make real. We&apos;re changing that — bundling
-              every frontier model into one canvas so anyone can generate images, video, music and more
-              without the tabs, the jargon, or the cost.
+              Most people have ideas they can&apos;t yet make real, we are changing that.<br />
+              An all in one platform, just without the tabs, jargon or the massive budgets.
             </p>
             <p>
               We&apos;re already there for over 100 million creators. The next chapter is bigger, and it&apos;s
@@ -115,8 +114,8 @@ export function Gallery() {
       <div className="wrap">
         <div className="sec-head reveal">
           <Eyebrow>Life at ImagineArt</Eyebrow>
-          <h2>A small team that ships, together.</h2>
-          <p>Where ambitious people come to build, learn, and create together.</p>
+          <h2>Where ambitious people come<br />to build, learn, and create together.</h2>
+          <p>Demo Fridays, real ownership, and a few offsites a year.</p>
         </div>
         <div className="gallery-grid reveal-grid">
           {GALLERY.map((g) => (
@@ -184,7 +183,7 @@ export function Process() {
         <div className="sec-head reveal">
           <Eyebrow>Hiring process</Eyebrow>
           <h2>What to expect.</h2>
-          <p>We move fast — most hiring decisions are made within 1–2 weeks.</p>
+          <p>We move fast — with most hiring decisions made within 1–2 weeks.</p>
         </div>
         <div className="process-steps reveal-grid">
           {PROCESS.map((s) => (
