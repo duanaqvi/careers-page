@@ -24,10 +24,6 @@ export function Mission() {
   return (
     <section className="section" id="mission">
       <div className="wrap">
-        <div className="mission-tagline reveal">
-          Most people have ideas they can&apos;t yet make real — we are changing that.
-          An all-in-one platform, just without the tabs, jargon, or the massive budgets.
-        </div>
         <div className="mission-grid reveal">
           <div>
             <Eyebrow>Why ImagineArt</Eyebrow>
