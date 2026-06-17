@@ -35,11 +35,12 @@ export default function Hero({ roleCount }: { roleCount: number }) {
       <div className="hero hero-centered">
         <HeroChip count={roleCount} />
         <h1 className="hero-h1">
-          Build the tools the<br />world creates <span className="gtext">with</span>.
+          Create tools,<br />for the <span className="gtext">creators</span>
         </h1>
         <p className="hero-sub">
-          We&apos;re a small team building AI that&apos;s already in the hands of 100M+ creators — images,
-          video, music and editing, all on one canvas. Come build the next billion creators&apos; favorite tool.
+          We&apos;re building AI that&apos;s already powering creativity for 100M+ creators worldwide.<br />
+          Images, video, music, and editing, all on one canvas.<br />
+          Do you want to join the team?
         </p>
         <HeroCTAs />
         <div className="hero-media">
