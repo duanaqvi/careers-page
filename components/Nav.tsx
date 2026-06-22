@@ -12,17 +12,24 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll);
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <nav className={`nav${scrolled ? " scrolled" : ""}`}>
+    <nav
+      className="nav"
+      style={{
+        opacity: scrolled ? 1 : 0,
+        pointerEvents: scrolled ? "auto" : "none",
+        transition: "opacity 300ms ease, background 240ms cubic-bezier(.16,1,.3,1)",
+      }}
+    >
       <div className="nav-inner">
         <a className="brand" href="https://www.imagine.art/" target="_blank" rel="noreferrer">
-          <Image src="/imagine-logo.svg" alt="" width={30} height={30} />
+          <Image src="/imagine-logo.svg" alt="" width={28} height={28} />
           <b>ImagineArt</b>
         </a>
         <div className="nav-links">

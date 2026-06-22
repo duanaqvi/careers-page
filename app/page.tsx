@@ -1,6 +1,8 @@
 import { fetchRoles } from "@/lib/ashby";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import MarqueeSection from "@/components/MarqueeSection";
+import ProjectsSection from "@/components/ProjectsSection";
 import Roles from "@/components/Roles";
 import AlertSignup from "@/components/AlertSignup";
 import {
@@ -145,16 +147,16 @@ export default async function CareersPage() {
       {jobPostingSchemas.map((s) => (
         <script key={s.identifier.value} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
-      <div className="ambient" />
+      <Hero />
       <Nav />
-      <main className="page" id="top">
-        <section className="section" style={{ paddingTop: 24, paddingBottom: 96 }}>
-          <Hero roleCount={roles.length} />
-        </section>
+      <main className="page" id="top" style={{ overflowX: "clip" }}>
         <StatsBand />
         <Mission />
-        <Gallery />
+        <MarqueeSection />
         <Team />
+        <ProjectsSection />
+        <Values />
+        <Perks />
         <Process />
         <Roles roles={roles} />
         <AlertSignup departments={departments} />
